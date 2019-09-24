@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+
+.header-container {
+    display: flex;
+    font-family: 'Big Shoulders Display', cursive;
+    height: 10vh;
+    background: #C5EFCB;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+.project-container {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    width: 20vw;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #C6DEC6;
+    box-shadow: 5px 5px 8px 5px #888888;
+}
+
+img {
+    width: 16vw;
+    height: 15vh;
+    align-self: center;
+}

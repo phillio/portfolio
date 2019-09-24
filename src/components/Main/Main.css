@@ -1,0 +1,38 @@
+.main-body {
+    display: flex;
+    overflow: auto;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 80vh;
+    background-color: #758173;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    overflow: auto;
+    width: 20vw;
+    height: 40vh;
+    background-color: #A9C5A0;
+    padding: 1rem;
+}
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 90%;
+    background-color: #A9C5A0;
+    overflow: auto;
+}
+
+.projects-header {
+    text-align: center;
+}
+
+.projects-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100%; */
+    width: 50vw;
+}

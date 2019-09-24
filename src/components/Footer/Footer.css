@@ -1,0 +1,8 @@
+footer {
+    display: flex;
+    font-family: 'Big Shoulders Display', cursive;
+    height: 10vh;
+    background: #C5EFCB;
+    justify-content: center;
+    align-items: center;
+}
