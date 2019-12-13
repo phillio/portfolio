@@ -3,7 +3,7 @@ After graduating from General Assembly's Software Engineering Immersive, I am no
 
 [**Phil's Portfolio**](https://philma.surge.sh)
 
-I have built a game based on HTML/DOM manipulation, a React-based making API calls to show current NFL team rosters, and two full stack apps using React and Express/Node as well as React and Rails!
+I have built multiple apps, including: a game based on HTML/DOM manipulation, a React-based making API calls to show current NFL team rosters, and two full stack apps using React and Express/Node as well as React and Rails!
 
 ### Screenshot:
 
