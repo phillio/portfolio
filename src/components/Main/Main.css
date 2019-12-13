@@ -1,38 +1,19 @@
 .main-body {
     display: flex;
-    overflow: auto;
+    flex-flow: column;
     justify-content: space-evenly;
-    width: 100%;
-    height: 80vh;
-    background-color: #758173;
+    background: #e1e8f0;
+    background-image: url("../pics/empire-state.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 85vh;
 }
 
-.about-container {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    overflow: auto;
-    width: 20vw;
-    height: 40vh;
-    background-color: #A9C5A0;
-    padding: 1rem;
-}
-.projects-container {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    height: 90%;
-    background-color: #A9C5A0;
-    overflow: auto;
+.main-bg {
+    /* backdrop-filter: blur(2px); */
 }
 
-.projects-header {
-    text-align: center;
-}
-
-.projects-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    /* height: 100%; */
-    width: 50vw;
+h2 {
+    margin: 0;
 }

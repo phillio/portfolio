@@ -1,8 +1,21 @@
-footer {
+.footer {
     display: flex;
     font-family: 'Big Shoulders Display', cursive;
-    height: 10vh;
-    background: #C5EFCB;
+    height: 7vh;
+    background: #ffffff;
     justify-content: center;
+    align-items: center;
+}
+
+.footer-box {
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+}
+
+.footer-box-text {
+    display: flex;
+    justify-content: space-between;
+    min-width: 75px;
     align-items: center;
 }

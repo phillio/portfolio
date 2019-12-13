@@ -2,9 +2,12 @@
 
 .header-container {
     display: flex;
+    color: rgba(230, 228, 228, 1);
+    background: rgba(18, 18, 18, 0.644);
+    /* color: rgba(18, 18, 18, 0.74);
+    background: rgba(255, 255, 255, 0.714); */
     font-family: 'Big Shoulders Display', cursive;
-    height: 10vh;
-    background: #C5EFCB;
+    height: 8vh;
     justify-content: center;
     align-items: center;
 }

@@ -4,11 +4,11 @@ import './Projects.css'
 
 function Projects (props) {
     return (
-        <div className="project-container">
+        <div className="project-container" id={`project-${props.indexNum}`}>
             <h3>{props.project.name}</h3>
-            <h5>Link: {props.project.link}</h5>
+            <h5 className="project-link"><a className="project-link" href={props.project.link} >Link: {props.project.link}</a></h5>
             <img alt={props.project.name} src={props.project.pic} ></img>
-            <p>Github: {props.project.repo}</p>
+            <h5 className="project-link"><a className="project-link" href={props.project.repo}>Github: {props.project.repo}</a></h5>
         </div>
     )
 }

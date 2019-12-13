@@ -1,0 +1,254 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 AndaleMono;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red47\green255\blue18;\red0\green0\blue0;\red43\green39\blue19;
+\red235\green236\blue237;\red13\green0\blue129;\red36\green38\blue41;\red104\green26\blue29;\red27\green29\blue31;
+\red224\green126\blue35;\red22\green21\blue22;\red224\green126\blue35;\red22\green21\blue22;}
+{\*\expandedcolortbl;;\cssrgb\c15686\c99608\c7843;\csgray\c0\c90000;\cssrgb\c22353\c20000\c9412;
+\cssrgb\c93725\c94118\c94510;\cssrgb\c6275\c6275\c58039;\cssrgb\c18824\c20000\c21176;\cssrgb\c49020\c15294\c15294;\cssrgb\c14118\c15294\c16078;
+\cssrgb\c90980\c56863\c17647;\cssrgb\c11373\c10980\c11373\c3922;\cssrgb\c90980\c56863\c17647;\cssrgb\c11373\c10980\c11373\c3922;}
+\margl1440\margr1440\vieww10800\viewh15500\viewkind0
+\deftab720
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf2 \cb3 \CocoaLigature0 find . -maxdepth 1 -type d \\( ! -name . \\) -exec bash -c "cd '\{\}' && pwd && git branch -a" \\;
+\f1\fs26 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 \
+\
+\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        pwd\
+        git branch -a\
+        \cf9 for b in `git branch -r | grep -v -- '->'`; do git branch --track $\{b##origin/\} $b; done\cf7 \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf4 \cb5 \
+\
+\
+\
+\
+*** \
+\
+above: both code snippets work; \
+first will list all branches in a directory containing multiple repos,\
+second will create local branches to track remote ones\
+\
+\
+below: code will look at all directories in a folder and list their subdirectories (1 level)\
+\
+***\
+\
+\
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo $\{PWD##*/\}\
+        echo  \
+        ls -a\
+        echo  \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf4 \cb5 \
+\
+\
+\
+\
+\
+***\
+Below code will list all branches for all repos (in a class repo),\
+Below that will list all branches for all repos for all directories (in parent directory of all classes)\
+***\
+\
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo $\{PWD##*/\}\
+        echo\
+        git branch -a\
+        echo  \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf4 \cb5 \
+\
+\
+\
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo $\{PWD##*/\}\
+        echo\
+        (\cf6 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo $\{PWD##*/\}\
+        echo\
+        git branch -a\
+        echo  \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done)\cf7 \
+        echo  \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf4 \cb5 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf10 \cb11 \outl0\strokewidth0 \strokec10 curl -s https://git.generalassemb.ly/api/v3/orgs/sei-nyc-cicadas/repos | jq '.[].clone_url' | xargs -n 1 git clone
+\f1\fs26 \cf4 \cb5 \outl0\strokewidth0 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf7 \cb5 find . -maxdepth \cf8 1\cf7  -type d \\( ! -name . \\) -exec bash -c \cf8 "cd '\{\}' && pwd"\cf7  \\;\cf7 \cb5 \
+\
+\
+find . -maxdepth \cf8 \cb5 1\cf7 \cb5  -type d \\( ! -name . \\) -exec bash -c \cf8 \cb5 "cd '\{\}' && git branch -a"\cf7 \cb5  \\;\cf4 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 find . -maxdepth 1 -type d \\( ! -name . \\) -exec bash -c "cd '\{\}' && pwd && git branch -a" \\;
+\f1\fs26 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf7 \cb5 \
+\
+find . -maxdepth \cf8 1\cf7  -type d \\( ! -name . \\) -exec bash -c \cf8 "cd '\{\}' && pwd && git branch -a && \cf9 for b in `git branch -r | grep -v -- '->'`; do git branch --track $\{b##origin/\} $b; done\cf8 \'93\cf7  \\;\
+\
+\
+\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf9 for b in `git branch -r | grep -v -- '->'`; do git branch --track $\{b##origin/\} $b; done\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 find . -maxdepth 1 -type d \\( ! -name . \\) -exec bash -c "cd '\{\}' && pwd && git branch -a && 
+\f1\fs26 \cf9 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 for b in `git branch -r | grep -v -- \'91->\'92`\\ do git branch --track $\{b##origin/\} $b\\ done
+\f0\fs34 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0  " \\;
+\f1\fs26 \cf9 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf9 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 \cb5 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        pwd\
+        git branch -a\
+        \cf9 \cb5 for b in `git branch -r | grep -v -- '->'`; do git branch --track $\{b##origin/\} $b; done\cf7 \cb5 \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\
+\
+\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        pwd\
+        git branch -a\
+        
+\f0\fs34 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 find . -maxdepth 1 -type d \\( ! -name . \\) -exec bash -c "cd '\{\}' && pwd && git branch -a" \\;
+\f1\fs26 \cf7 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf6 \cb5 \
+\
+\
+\
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        pwd\
+        ls -a\
+        echo basename $D\
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf6 \cb5 \
+\
+\
+\
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo $D\
+        ls -a\
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf6 \cb5 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf10 \cb11 \outl0\strokewidth0 \strokec10 curl -s https://git.generalassemb.ly/api/v3/orgs/sei-nyc-cicadas/repos | jq '.[].clone_url' | xargs -n 1 git clone
+\f1\fs26 \cf4 \cb5 \outl0\strokewidth0 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo \cf7 \cb5 $\{PWD##*/\}\cf7 \cb5 \
+        echo  \cf7 \cb5 \
+        ls -a\cf7 \cb5 \
+        echo  \cf7 \cb5 \
+        cd ..\
+    \cf6 \cb5 fi\cf7 \cb5 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 \cb5 done\
+\
+\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 \cb5 for\cf7  D \cf6 in\cf7  ./*; \cf6 do\cf7 \
+    \cf6 if\cf7  [ -d \cf8 "$D"\cf7  ]; \cf6 then\cf7 \
+        cd \cf8 "$D"\cf7 \
+        echo  \
+        echo $\{PWD##*/\}\
+        echo  \
+        ls -a\
+        echo  \
+        
+\f2\fs24 \cf12 \cb13 curl -s https://git.generalassemb.ly/api/v3/orgs/
+\f1\fs26 \cf7 \cb5 $\{PWD##*/\}
+\f2\fs24 \cf12 \cb13 /repos | jq '.[].clone_url' | xargs -n 1 git clone
+\f1\fs26 \cf7 \cb5 \
+        echo  \
+        cd ..\
+    \cf6 fi\cf7 \
+\cf6 done\cf4 \cb5 \
+}
