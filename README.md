@@ -7,6 +7,6 @@ I have built multiple apps, including: a game based on HTML/DOM manipulation, a 
 
 ### Screenshot:
 
-![Phil's Portfolio](https://raw.githubusercontent.com/phillio/portfolio/master/src/components/pics/readmepic.png)
+![Phil's Portfolio](https://raw.githubusercontent.com/phillio/portfolio/master/src/components/pics/readmepic2.png)
 
 **(Built on HTML, CSS, Javascript, and React!)**
