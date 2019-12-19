@@ -16,7 +16,8 @@
 
 .footer-box-text {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
     min-width: 75px;
     max-width: 120px;
     align-items: center;
