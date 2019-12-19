@@ -2,6 +2,7 @@
     display: flex;
     font-family: 'Big Shoulders Display', cursive;
     height: 7vh;
+    min-height: 55px;
     background: #ffffff;
     justify-content: center;
     align-items: center;
@@ -9,7 +10,7 @@
 
 .footer-box {
     display: flex;
-    width: 500px;
+    width: 100%;
     justify-content: space-evenly;
 }
 
@@ -17,5 +18,6 @@
     display: flex;
     justify-content: space-between;
     min-width: 75px;
+    max-width: 120px;
     align-items: center;
 }
